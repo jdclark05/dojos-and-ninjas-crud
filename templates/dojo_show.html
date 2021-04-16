@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dojos Home Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/dojo_show.css') }}">
+</head>
+<body>
+    <div>
+        <div class="heading">
+            <h3>{{ninjas[0]['name']}}'s Students</h3>
+        </div>
+        <div class="panel">
+            <table class="table-fill">
+                <thead>
+                <tr>
+                    <th class="text-center">First Name</th>
+                    <th class="text-center">Last Name</th>
+                    <th class="text-center">Age</th>
+                </tr>
+                </thead>
+                <tbody class="table-hover">
+                    {% for ninja in ninjas %}
+                    <tr>
+                        <td class="text-center">{{ninja['first_name']}} </td>
+                        <td class="text-center">{{ninja['last_name']}}</td>
+                        <td class="text-center">{{ninja['age']}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="justifyBtn">
+        <button class="btn btn-primary">
+            <p class="homeLink"><a href="/"> Home</a></p>
+        </button>
+    </div>
+</body>
+</html>

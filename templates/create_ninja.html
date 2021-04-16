@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Add Ninja</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/add_ninja.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+			    	<h4> Add a Ninja </h4>
+			 	</div>
+			 	<div class="panel-body">
+			    	<form action ="/create_ninja" method="POST" role="form">
+			    	<div class="row">
+                        <select name="dojo_id">
+                            <option value="">Select a Dojo</option>
+                        {% for dojo in dojos %}
+                            <option value="{{ dojo['id'] }}">{{ dojo['name'] }}</option>
+                        {% endfor %}
+                        </select>
+                    </div>
+                    <div class="row">
+			    		<div class="entry_field">
+			    			<div class="form-group">
+			                    <input type="text" name="first_name" id="first_name" class="form-control input-sm floatlabel" placeholder="First Name">
+			    			</div>
+			    		</div>
+                    </div>
+                    <div class="row">
+			    		<div class="entry_field">
+			    			<div class="form-group">
+			    				<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+			    			</div>
+			    		</div>
+			        </div>
+                    <div class="row">
+			    		<div class="entry_field">
+			    			<div class="form-group">
+			    				<input type="number" name="age" id="age" class="form-control input-sm" placeholder="AGE">
+			    			</div>
+			    		</div>
+			        </div>
+                    <div>
+                        <input type="submit" action="add_ninja" value="Create User" class="btn btn-info btn-block">
+                    </div>
+			        </form>
+			    </div>
+	        </div>
+    	</div>
+        </div>
+        <div class="justifyBtn">
+            <button class="btn btn-primary">
+                <p class="homeLink"><a href="/"> Home</a></p>
+            </button>
+        </div>
+    </div>
+</body>
+</html>

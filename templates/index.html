@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dojos Home Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style.css') }}">
+</head>
+<body>
+    <div class="flex_all">
+        <div class="container">
+            <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>Create New Dojo </h4>
+                    </div>
+                    <div class="panel-body">
+                        <form action ="/" method="POST" role="form">
+                        <div class="row row-no-gutters">
+                            <div class="form-group">
+                                <input type="text" class="form-control input-default" placeholder="Dojo Name" name="name">
+                            </div>
+                        </div>
+                        <input type="submit" value="Create" action="add_dojo" class="btn btn-info btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div>
+            <div class="heading">
+                <h3>List of Dojos</h3>
+            </div>
+            <div class="panel2">
+                <table class="table-fill">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Dojo Name </th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-hover">
+                    {% for dojo in dojos %}
+                    <tr>
+                        <td class="text-center"><a href="/dojo_show/{{dojo['id']}}">{{dojo['name']}}</a></td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <p class="userLink"><a href="/create_ninja"> Add a New Ninja</a></p> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>
